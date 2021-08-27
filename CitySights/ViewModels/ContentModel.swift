@@ -12,6 +12,7 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     var locationManager = CLLocationManager()
     @Published var restaurants = [Business]()
     @Published var sights = [Business]()
+    @Published var authorizationState = CLAuthorizationStatus.notDetermined
     
     override init() {
         super.init()
@@ -25,6 +26,9 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     
     // MARK: - Location manager delegate method
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        // update the authorizationState property
+        self.authorizationState = locationManager.authorizationStatus
+        
         if locationManager.authorizationStatus == .authorizedAlways ||
             locationManager.authorizationStatus == .authorizedWhenInUse {
             
@@ -78,14 +82,23 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
                     do {
                         let decodedData = try decoder.decode(BusinessSearch.self, from: data!)
                         
+                        // sort based on distance
+                        var businesses = decodedData.businesses
+                        businesses.sort { b1, b2 in
+                            return b1.distance ?? 0 < b2.distance ?? 0
+                        }
+                        
+                        for data in businesses {
+                            data.loadImageFromUrl()
+                        }
+                        
                         DispatchQueue.main.async {
                             // assign decoded data to published property
-                            
                             switch category {
                             case Constants.sightsKey:
-                                self.sights = decodedData.businesses
+                                self.sights = businesses
                             case Constants.restaurantKey:
-                                self.restaurants = decodedData.businesses
+                                self.restaurants = businesses
                             default:
                                 break
                             }
