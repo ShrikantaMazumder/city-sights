@@ -12,10 +12,15 @@ struct BusinessSection: View {
     var title: String
     
     var body: some View {
-        Section(header: BusinessSectionHeader(title: title)) {
-            ForEach(businesses) { business in
-                BusinessRow(business: business)
+            Section(header: BusinessSectionHeader(title: title)) {
+                ForEach(businesses) { business in
+                    NavigationLink(
+                        destination: BusinessDetail(business: business),
+                        label: {
+                            BusinessRow(business: business)
+                        })
+                }
             }
-        }
+        
     }
 }

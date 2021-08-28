@@ -18,6 +18,7 @@ struct BusinessList: View {
                 
                 BusinessSection(businesses: model.sights, title: "Sights")
             }
+            .accentColor(.black)
         }
     }
 }
