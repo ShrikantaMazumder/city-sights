@@ -18,6 +18,7 @@
 		6C80708726D8AF5E0018F2E2 /* BusinessSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C80708626D8AF5E0018F2E2 /* BusinessSectionHeader.swift */; };
 		6C80708926D8B0120018F2E2 /* BusinessSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C80708826D8B0120018F2E2 /* BusinessSection.swift */; };
 		6C80708B26D95C5C0018F2E2 /* BusinessRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C80708A26D95C5C0018F2E2 /* BusinessRow.swift */; };
+		6C841DE326DAC1660086C36C /* BusinessMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C841DE226DAC1660086C36C /* BusinessMap.swift */; };
 		6C88DE8A26D5FD3700544523 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C88DE8926D5FD3700544523 /* Business.swift */; };
 		6C958F0426D9E24800EADA21 /* BusinessDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C958F0326D9E24800EADA21 /* BusinessDetail.swift */; };
 		6CF9560326D6257800A64D19 /* BusinessSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF9560226D6257800A64D19 /* BusinessSearch.swift */; };
@@ -37,6 +38,7 @@
 		6C80708626D8AF5E0018F2E2 /* BusinessSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSectionHeader.swift; sourceTree = "<group>"; };
 		6C80708826D8B0120018F2E2 /* BusinessSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSection.swift; sourceTree = "<group>"; };
 		6C80708A26D95C5C0018F2E2 /* BusinessRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessRow.swift; sourceTree = "<group>"; };
+		6C841DE226DAC1660086C36C /* BusinessMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessMap.swift; sourceTree = "<group>"; };
 		6C88DE8926D5FD3700544523 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		6C958F0326D9E24800EADA21 /* BusinessDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetail.swift; sourceTree = "<group>"; };
 		6CF9560226D6257800A64D19 /* BusinessSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSearch.swift; sourceTree = "<group>"; };
@@ -131,7 +133,7 @@
 		6C204D7B26D8390E0041087A /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				6C958F0226D9E23200EADA21 /* Detail */,
+				6C841DE126DAC1510086C36C /* Map */,
 				6C204D7E26D8394B0041087A /* HomeView.swift */,
 				6C80708326D8AB880018F2E2 /* List */,
 			);
@@ -155,12 +157,21 @@
 		6C80708326D8AB880018F2E2 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				6C958F0226D9E23200EADA21 /* Detail */,
 				6C80708426D8AB9E0018F2E2 /* BusinessList.swift */,
 				6C80708626D8AF5E0018F2E2 /* BusinessSectionHeader.swift */,
 				6C80708826D8B0120018F2E2 /* BusinessSection.swift */,
 				6C80708A26D95C5C0018F2E2 /* BusinessRow.swift */,
 			);
 			path = List;
+			sourceTree = "<group>";
+		};
+		6C841DE126DAC1510086C36C /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				6C841DE226DAC1660086C36C /* BusinessMap.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		6C958F0226D9E23200EADA21 /* Detail */ = {
@@ -249,6 +260,7 @@
 				6C958F0426D9E24800EADA21 /* BusinessDetail.swift in Sources */,
 				6C1CC6D926D42B0D0077AD0D /* ContentModel.swift in Sources */,
 				6C80708526D8AB9F0018F2E2 /* BusinessList.swift in Sources */,
+				6C841DE326DAC1660086C36C /* BusinessMap.swift in Sources */,
 				6C80708926D8B0120018F2E2 /* BusinessSection.swift in Sources */,
 				6C1763E526D74FEC00705CBD /* Constants.swift in Sources */,
 				6C204D7F26D8394B0041087A /* HomeView.swift in Sources */,

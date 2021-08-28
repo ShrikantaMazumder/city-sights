@@ -17,6 +17,8 @@ struct HomeView: View {
             if model.restaurants.count != 0 || model.sights.count != 0 {
                 if isMapShowing {
                     // Show map view
+                    BusinessMap()
+                        .ignoresSafeArea()
                 } else {
                     // List view
                     VStack(alignment: .leading) {
@@ -24,7 +26,11 @@ struct HomeView: View {
                             Image(systemName: "location")
                             Text("San Fransisco")
                             Spacer()
-                            Text("Switch to Map view")
+                            Button(action: {
+                                self.isMapShowing = true
+                            }, label: {
+                                Text("Switch to Map view")
+                            })
                         }
                         Divider()
                         
