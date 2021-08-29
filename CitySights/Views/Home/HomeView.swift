@@ -18,11 +18,31 @@ struct HomeView: View {
             if model.restaurants.count != 0 || model.sights.count != 0 {
                 if isMapShowing {
                     // Show map view
-                    BusinessMap(selectedBusiness: $selectedBusiness)
-                        .ignoresSafeArea()
-                        .sheet(item: $selectedBusiness) { business in
-                            BusinessDetail(business: business)
+                   
+                    ZStack(alignment: .top) {
+                        BusinessMap(selectedBusiness: $selectedBusiness)
+                            .ignoresSafeArea()
+                            .sheet(item: $selectedBusiness) { business in
+                                BusinessDetail(business: business)
                         }
+                        ZStack {
+                            Rectangle()
+                                .frame(height: 48)
+                                .foregroundColor(.white)
+                            HStack {
+                                Image(systemName: "location")
+                                Text("San Fransisco")
+                                Spacer()
+                                Button(action: {
+                                    self.isMapShowing = false
+                                }, label: {
+                                    Text("Switch to List view")
+                                })
+                            }
+                            .padding()
+                        }
+                        .padding()
+                    }
                 } else {
                     // List view
                     VStack(alignment: .leading) {
