@@ -31,7 +31,7 @@ struct HomeView: View {
                                 .foregroundColor(.white)
                             HStack {
                                 Image(systemName: "location")
-                                Text("San Fransisco")
+                                Text(model.placeMark?.locality ?? "Your location")
                                 Spacer()
                                 Button(action: {
                                     self.isMapShowing = false
@@ -48,7 +48,7 @@ struct HomeView: View {
                     VStack(alignment: .leading) {
                         HStack {
                             Image(systemName: "location")
-                            Text("San Fransisco")
+                            Text(model.placeMark?.locality ?? "Your location")
                             Spacer()
                             Button(action: {
                                 self.isMapShowing = true

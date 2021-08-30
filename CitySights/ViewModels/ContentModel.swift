@@ -13,15 +13,18 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var restaurants = [Business]()
     @Published var sights = [Business]()
     @Published var authorizationState = CLAuthorizationStatus.notDetermined
+    @Published var placeMark: CLPlacemark?
     
     override init() {
         super.init()
         
         locationManager.delegate = self
-        // Request permission from user
-        locationManager.requestWhenInUseAuthorization()
         
         // Start geolocating the user
+    }
+    func requestGeoLocationPermission() {
+        // Request permission from user
+        locationManager.requestWhenInUseAuthorization()
     }
     
     // MARK: - Location manager delegate method
@@ -47,6 +50,15 @@ class ContentModel: NSObject, CLLocationManagerDelegate, ObservableObject {
         }
         
         locationManager.stopUpdatingLocation()
+        
+        // Get the placemark of the user
+        let geoCoder = CLGeocoder()
+        geoCoder.reverseGeocodeLocation(userLocation!) { placemarks, error in
+            if error == nil && placemarks != nil {
+                // take the first placemark
+                self.placeMark = placemarks?.first
+            }
+        }
     }
     
     func getBusiness(category: String, location: CLLocation) {

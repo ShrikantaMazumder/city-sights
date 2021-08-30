@@ -40,8 +40,8 @@ struct BusinessDetail: View {
                 // Business title
                 BusinessTitle(business: business)
                     .padding()
-                Divider()
-                
+                DashedDivider()
+                    .padding(.horizontal)
                 // Phone
                 if let phone = business.displayPhone {
                     HStack {
@@ -53,7 +53,8 @@ struct BusinessDetail: View {
                     .padding()
                 }
                 
-                Divider()
+                DashedDivider()
+                    .padding(.horizontal)
                 
                 // Reviews
                     HStack {
@@ -64,7 +65,8 @@ struct BusinessDetail: View {
                     }
                     .padding()
                 
-                Divider()
+                DashedDivider()
+                    .padding(.horizontal)
                 
                 // Website
                 HStack {
@@ -77,7 +79,8 @@ struct BusinessDetail: View {
                 }
                 .padding()
                 
-                Divider()
+                DashedDivider()
+                    .padding(.horizontal)
         }
             
             // Get direction button
